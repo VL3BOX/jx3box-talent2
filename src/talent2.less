@@ -1,0 +1,173 @@
+.m-talent2-box {
+
+  position: relative;
+  .m-talent2-main {
+      display: flex;
+      justify-content: space-between;
+  }
+
+
+  background-image: url('./img/bg.png');
+  background-repeat: no-repeat;
+  min-height: 525px;
+  width: 66.6%;
+
+  .m-talent2-left {
+      flex: auto;
+  }
+  .m-talent2-right {
+      flex: auto;
+  }
+
+  .m-talent2-surplus {
+      position: absolute;
+      color: #fff;
+      right: 30px;
+      top: 45px;
+  }
+  .m-talent2-actions {
+      position: absolute;
+      right: 30px;
+      bottom: 18px;
+      // width: 100%;
+
+      &-btn {
+          color: #fff;
+          border: none;
+          padding: 5px 25px;
+          background-image: linear-gradient(to bottom, #898B8A 50%, #595B5A 50%);
+
+          // &:hover {
+              // background-color: lighten(#898B8A, 20%)
+          // }
+      }
+  }
+}
+
+.m-talent2-render-box {
+  width: 50.8%;
+}
+
+.m-talent2-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  background-image: url('./img/title_bg.png');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+
+
+  .m-talent2-xf-icon {
+      width: 30px;
+  }
+
+  &-count {
+      display: inline-block;
+      text-align: center;
+      width: 20px;
+      font-size: 14px;
+      margin-right: 8px;
+      color: #fff;
+
+      background-image: url('./img/count_bg.png');
+      background-repeat: no-repeat;
+  }
+
+  &-name {
+      // font-weight: bold;
+      color: #F3F50A;
+      font-size: 15px;
+  }
+}
+
+.m-talent2-content {
+  display: grid;
+  padding: 12px 24px;
+  height: 77%;
+  margin: 0 15px;
+  margin-top: 90px;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      justify-items: center;
+
+      &:not(:last-of-type) {
+          margin-bottom: 8px;
+      }
+
+      &-disabled {
+          cursor: not-allowed;
+      }
+  }
+
+  &-item {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      width: 40px;
+      border: 2px solid #4E8370;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+
+      background-image: url('./img/skill_bg.png');
+
+
+      // background: chocolate;
+
+      &:hover {
+          border-color: burlywood;
+      }
+
+      &-inactive {
+          filter: grayscale(100%);
+      }
+
+      &-disabled {
+          pointer-events: none;
+      }
+      .m-talent2-skill {
+          transform: scale(1.2);
+      }
+      img {
+          height: 40px;
+          width: 40px;
+      }
+
+      &-empty {
+          visibility: hidden;
+      }
+
+      &-count {
+          position: absolute;
+          width: 20px;
+          background-image: url('./img/count_bg.png');
+          background-repeat: no-repeat;
+          text-align: center;
+          right: 0;
+          bottom: 0;
+
+          color: #F89403;
+      }
+
+      &-relate {
+          position: absolute;
+          font-size: 24px;
+          bottom: -12px;
+      }
+
+      &-skill {
+          border-radius: 5px;
+      }
+  }
+  .m-talent2-content-item {
+      user-select: none;
+  }
+}

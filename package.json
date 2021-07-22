@@ -1,0 +1,23 @@
+{
+  "name": "jx3box-talent2",
+  "version": "1.0.0",
+  "description": "origin talent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JX3BOX/jx3box-talent2.git"
+  },
+  "author": "kaviilee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JX3BOX/jx3box-talent2/issues"
+  },
+  "homepage": "https://github.com/JX3BOX/jx3box-talent2#readme",
+  "dependencies": {
+    "@jx3box/jx3box-common": "^6.4.9",
+    "@jx3box/jx3box-data": "^1.2.6"
+  }
+}
