@@ -1,5 +1,6 @@
 <template>
     <div class="m-talent2-box m-talent2-render-box">
+        <div class="m-talent2-main-title">镇派经脉模拟器</div>
         <template v-if="xf">
             <div class="m-talent2-main">
                 <!-- LEFT -->
