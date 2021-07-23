@@ -203,10 +203,13 @@ export default {
         }
     },
     watch: {
-        talentCode: function(val) {
-            if (val) {
-                this.renderTalents();
-            }
+        talentCode:  {
+            handler(val) {
+                if (val) {
+                    this.renderTalents();
+                }
+            },
+            immediate: true
         }
     }
 }
