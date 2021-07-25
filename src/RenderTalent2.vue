@@ -111,9 +111,12 @@
                                             {{ item.desc }}
                                         </span>
                                     </span>
+
                                     <!-- COUNT -->
                                     <span v-if="Number(r_data[index][i])"
-                                        class="m-talent2-content-item-count">{{ r_data[index][i] }}</span>
+                                        class="m-talent2-content-item-count">{{ r_data[index][i] }}
+                                    </span>
+
                                     <!-- CHILDREN -->
                                     <i v-if="item.children.length"
                                         class="el-icon-bottom m-talent2-content-item-relate"></i>
@@ -187,17 +190,6 @@ export default {
                 this.parseCode = JSON.parse(this.talentCode);
                 this.version = this.parseCode.version;
                 await this.getTalents();
-                this.xf = this.parseCode.xf;
-
-                const _sq = this.parseCode.sq.split(",");
-                if (this.begin === 'left') {
-                    this.l_data = _sq.slice(0, 6);
-                    this.r_data = _sq.slice(6, _sq.length);
-                } else {
-                    this.r_data = _sq.slice(0, 6);
-                    this.l_data = _sq.slice(6, _sq.length);
-                }
-                    
             } catch(e) {
                 this.$message.error("编码格式错误");
             }
@@ -283,9 +275,22 @@ export default {
                 .then(response => {
                     this.talents = response;
 
+                    this.xf = this.parseCode.xf;
+
                     const val = this.xf;
                     this.xfContent = xfConfigs[val]?.content;
                     this.begin = xfConfigs[val]?.begin;
+
+                    const _sq = this.parseCode.sq.split(",");
+
+                    if (this.begin === 'left') {
+                        this.l_data = _sq.slice(0, 6);
+                        this.r_data = _sq.slice(6, _sq.length);
+                    } else if (this.begin === 'right') {
+                        this.r_data = _sq.slice(0, 6);
+                        this.l_data = _sq.slice(6, _sq.length);
+                    }
+
                     // 新增pop显示控制
                     this.talentContent.left = this.talents[xfConfigs[val].talent[0]]?.map(left => {
                         const _left = left.map(l => {
@@ -298,11 +303,11 @@ export default {
 
                     this.talentContent.right = this.talents[xfConfigs[val].talent[1]]?.map(right => {
                         const _right = right.map(r => {
-                        if (r) this.$set(r, 'on', false);
-                        return r
-                    })
-                    return _right
-                });
+                            if (r) this.$set(r, 'on', false);
+                            return r
+                        })
+                        return _right
+                    });
                     this.r_name = xfConfigs[val]?.talent[1];
                 })
         }
