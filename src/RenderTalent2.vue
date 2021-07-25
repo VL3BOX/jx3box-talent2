@@ -29,6 +29,8 @@
                                         {'m-talent2-content-item-inactive': !Number(l_data[index][i])}
                                     ]"
                                     :key="i"
+                                    @mouseover="$set(item, 'on', true)"
+                                    @mouseleave="$set(item, 'on', false)"
                                 >
                                     <div class="m-talent2-skill">
                                         <img :src="item.icon | talentIcon" :alt="item.name">
@@ -82,6 +84,8 @@
                                         {'m-talent2-content-item-inactive': !Number(r_data[index][i])}
                                     ]"
                                     :key="i"
+                                    @mouseover="$set(item, 'on', true)"
+                                    @mouseleave="$set(item, 'on', false)"
                                 >
                                     <div class="m-talent2-skill">
                                         <img :src="item.icon | talentIcon" :alt="item.name">
@@ -208,9 +212,23 @@ export default {
                     const val = this.xf;
                     this.xfContent = xfConfigs[val]?.content;
                     this.begin = xfConfigs[val]?.begin;
-                    this.talentContent.left = this.talents[xfConfigs[val].talent[0]];
+                    // 新增pop显示控制
+                    this.talentContent.left = this.talents[xfConfigs[val].talent[0]]?.map(left => {
+                        const _left = left.map(l => {
+                            if (l) this.$set(l, 'on', false);
+                            return l
+                        })
+                        return _left
+                    });
                     this.l_name = xfConfigs[val]?.talent[0];
-                    this.talentContent.right = this.talents[xfConfigs[val].talent[1]];
+
+                    this.talentContent.right = this.talents[xfConfigs[val].talent[1]]?.map(right => {
+                        const _right = right.map(r => {
+                        if (r) this.$set(r, 'on', false);
+                        return r
+                    })
+                    return _right
+                });
                     this.r_name = xfConfigs[val]?.talent[1];
                 })
         }
