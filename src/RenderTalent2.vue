@@ -9,7 +9,7 @@
                     <div 
                         class="m-talent2-content"
                         :style="{
-                            'background-image': xf ? (lCount ? `url(${talentBg('left', 1)})` : `url(${talentBg('left', 0)})`) : ''
+                            'background-image': xf ? `url(${talentBg('left', 1)})` : ''
                         }">
                         <div class="m-talent2-title">
                             <img class="m-talent2-xf-icon" :src="xfContent[0] | xficon">
@@ -18,7 +18,8 @@
                         </div>
                         <div
                             class="m-talent2-content-row"
-                            v-for="(row, index) in talentContent.left" :key="'l'+index"
+                            v-for="(row, index) in talentContent.left"
+                            :key="'l'+index"
                         >
                             <template v-for="(item, i) in row">
                                 <div
@@ -26,13 +27,18 @@
                                     class="m-talent2-content-item"
                                     :class="[
                                         {'m-talent2-content-item-skill': item.type === 'skill'},
-                                        {'m-talent2-content-item-inactive': !Number(l_data[index][i])}
+                                        !canOperate(index, 'left') ? 'm-talent2-content-item-disabled' : ''
                                     ]"
                                     :key="i"
                                     @mouseover="$set(item, 'on', true)"
                                     @mouseleave="$set(item, 'on', false)"
                                 >
-                                    <div class="m-talent2-skill">
+                                    <div
+                                        class="m-talent2-skill"
+                                        :class="[
+                                            !canLeftItemOperate(index, i) ? 'm-talent2-unselected': 'm-talent2-selected'
+                                        ]"
+                                    >
                                         <img :src="item.icon | talentIcon" :alt="item.name">
                                     </div>
                                     <!-- DESC -->
@@ -64,7 +70,7 @@
                     <div
                         class="m-talent2-content"
                         :style="{
-                            'background-image': xf ? (rCount ? `url(${talentBg('right', 1)})` : `url(${talentBg('right', 0)})`) : ''
+                            'background-image': xf ? `url(${talentBg('right', 1)})` : ''
                         }">
                         <div class="m-talent2-title">
                             <img class="m-talent2-xf-icon" :src="xfContent[1] | xficon">
@@ -81,13 +87,18 @@
                                     v-if="item"
                                     class="m-talent2-content-item" :class="[
                                         {'m-talent2-content-item-skill': item.type === 'skill'},
-                                        {'m-talent2-content-item-inactive': !Number(r_data[index][i])}
+                                        !canOperate(index, 'right') ? 'm-talent2-content-item-disabled' : ''
                                     ]"
                                     :key="i"
                                     @mouseover="$set(item, 'on', true)"
                                     @mouseleave="$set(item, 'on', false)"
                                 >
-                                    <div class="m-talent2-skill">
+                                    <div
+                                        class="m-talent2-skill"
+                                        :class="[
+                                            !canRightItemOperate(index, i) ? 'm-talent2-unselected': 'm-talent2-selected'
+                                        ]"
+                                    >
                                         <img :src="item.icon | talentIcon" :alt="item.name">
                                     </div>
                                     <!-- DESC -->
@@ -190,6 +201,69 @@ export default {
             } catch(e) {
                 this.$message.error("编码格式错误");
             }
+        },
+        // talent 单项逻辑
+        // -------------------
+        /**
+         * 判断该行是否可点
+         * @param {number} rowIndex 行号
+         * @param {string} target 左右区域
+         * @returns {boolean} true表示可以编辑
+         */
+        canOperate: function(rowIndex, target) {
+            if (target === 'left') {
+                return this.lCount >= rowIndex * 5
+            } else {
+                return this.rCount >= rowIndex * 5
+            }
+        },
+        /**
+         * 判断left该项是否可点
+         * @param {number} rowIndex 行号
+         * @param {number} index 列号
+         * @param {string} target 左右区域
+         * @returns {boolean} 是否可以修改
+         */
+        canLeftItemOperate: function(rowIndex, colIndex) {
+            let canOperate = false
+            // 初始为left的第一行点亮
+            if (this.begin === 'left') {
+                if (!rowIndex) {
+                    canOperate = true
+                } else if (this.lCount > 0 && this.lCount >= (rowIndex) * 5) {
+                    canOperate = true
+                }
+            } else if (this.begin === 'right') {
+                if (this.rCount >= this.series_open_need && this.lCount >= 0 && this.lCount >= (rowIndex) * 5) {
+                    canOperate = true
+                }
+            }
+            
+            return canOperate
+
+        },
+        /**
+         * 判断right该项是否可点
+         * @param {number} rowIndex 行号
+         * @param {number} index 列号
+         * @param {string} target 左右区域
+         * @returns {boolean} 是否可以修改
+         */
+        canRightItemOperate: function(rowIndex, colIndex) {
+            let canOperate = false
+            // 初始为left的第一行点亮
+            if (this.begin === 'right') {
+                if (!rowIndex) {
+                    canOperate = true
+                } else if (this.rCount > 0 && this.rCount >= (rowIndex) * 5) {
+                    canOperate = true
+                }
+            } else if (this.begin === 'left') {
+                if (this.lCount >= this.series_open_need && this.rCount >= 0 && this.rCount >= (rowIndex) * 5) {
+                    canOperate = true
+                }
+            }
+            return canOperate
         },
         /**
          * 心法背景图片
