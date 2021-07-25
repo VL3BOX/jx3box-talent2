@@ -30,9 +30,19 @@
                                     ]"
                                     :key="i"
                                 >
-                                    <div class="m-talent2-skill" :title="item.desc">
+                                    <div class="m-talent2-skill">
                                         <img :src="item.icon | talentIcon" :alt="item.name">
                                     </div>
+                                    <!-- DESC -->
+                                    <span class="m-talent2-pop" :class="item.on ? 'on' : ''">
+                                        <b class="m-talent2-name">{{ item.name }}</b>
+                                        <b class="m-talent2-type">
+                                            {{ item.type === 'talent' ? '被动招式': '主动招式' }}
+                                        </b>
+                                        <span class="m-talent2-desc">
+                                            {{ item.desc }}
+                                        </span>
+                                    </span>
                                     <!-- COUNT -->
                                     <span v-if="Number(l_data[index][i])"
                                         class="m-talent2-content-item-count">{{ l_data[index][i] }}</span>
@@ -73,9 +83,19 @@
                                     ]"
                                     :key="i"
                                 >
-                                    <div class="m-talent2-skill" :title="item.desc">
+                                    <div class="m-talent2-skill">
                                         <img :src="item.icon | talentIcon" :alt="item.name">
                                     </div>
+                                    <!-- DESC -->
+                                    <span class="m-talent2-pop" :class="item.on ? 'on' : ''">
+                                        <b class="m-talent2-name">{{ item.name }}</b>
+                                        <b class="m-talent2-type">
+                                            {{ item.type === 'talent' ? '被动招式': '主动招式' }}
+                                        </b>
+                                        <span class="m-talent2-desc">
+                                            {{ item.desc }}
+                                        </span>
+                                    </span>
                                     <!-- COUNT -->
                                     <span v-if="Number(r_data[index][i])"
                                         class="m-talent2-content-item-count">{{ r_data[index][i] }}</span>
@@ -157,9 +177,10 @@ export default {
                 const _sq = this.parseCode.sq.split(",");
                 if (this.begin === 'left') {
                     this.l_data = _sq.slice(0, 6);
-                    this.r_data = _sq.slice(6, _sq.length)
+                    this.r_data = _sq.slice(6, _sq.length);
                 } else {
-                    this.l_data = _sq.slice(6, _sq.length)
+                    this.r_data = _sq.slice(0, 6);
+                    this.l_data = _sq.slice(6, _sq.length);
                 }
                     
             } catch(e) {
