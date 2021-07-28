@@ -119,7 +119,7 @@
             border-color: burlywood;
         }
 
-        .m-talent2-skill {
+        .m-talent2-talent {
             position: relative;
 
             &::after {
@@ -134,9 +134,15 @@
             }
     
         }
-        img {
+        .talent-img {
+            height: 48px;
+            width: 48px;
             border-radius: 48px;
             transform: scale(0.95);
+        }
+
+        .skill-img {
+            border-radius: 0!important;
         }
 
         .m-talent2-unselected {
@@ -149,6 +155,37 @@
                 background: rgba(0,0,0,0.5);
                 z-index: 10;
             }
+        }
+        .m-talent2-skill-unselected {
+            &::before {
+                transition: opacity 0.2s linear;
+                content: '';
+                position: absolute;
+                height: 48px;
+                width: 48px;
+                border-radius: 6px;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 10;
+                opacity: 1;
+            }
+        }
+        .is-add {
+            transition: opacity 0.2s linear;
+            position: absolute;
+            height: 48px;
+            width: 48px;
+            border-radius: 48px;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 11;
+        }
+        .is-add-skill {
+            transition: opacity 0.2s linear;
+            position: absolute;
+            height: 48px;
+            width: 48px;
+            border-radius: 6px;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 11;
         }
 
         &-empty {
@@ -186,12 +223,26 @@
         user-select: none;
     }
 
+    .m-talent2-pretab {
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            width: 34px;
+            height: 26px;
+            top: -16px;
+            left: 7px;
+            background-image: url('./img/next_bg.png');
+            z-index: 203;
+        }
+    }
+
     // pop
     @name: #ff0;
     .m-talent2-pop {
         position: absolute;
-        top: 100%;
-        left: 0;
+        bottom: calc(100% + 3px);
+        left: -2px;
         background-color: rgba(0,0,0,.8);
         margin-left: 4px;
         border-radius: 3px;
@@ -210,9 +261,17 @@
         }
 
         .m-talent2-name {
+            display: flex;
+            justify-content: space-between;
             font-size: 14px;
             line-height: 2;
             color: @name;
+
+            .m-talent2-number {
+                color: #859293;
+                font-size: 14px;
+                font-weight: normal;
+            }
         }
         .m-talent2-type {
             color: #fff;
