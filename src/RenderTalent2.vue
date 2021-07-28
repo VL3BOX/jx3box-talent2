@@ -81,9 +81,6 @@
                                     <!-- COUNT -->
                                     <span v-if="Number(l_data[index][i])"
                                         class="m-talent2-content-item-count">{{ l_data[index][i] }}</span>
-                                    <!-- CHILDREN -->
-                                    <i v-if="item.children.length"
-                                        class="el-icon-bottom m-talent2-content-item-relate"></i>
                                 </div>
                                 <div v-else class="m-talent2-content-item-empty" :key="i"></div>
                             </template>
@@ -170,10 +167,6 @@
                                     <span v-if="Number(r_data[index][i])"
                                         class="m-talent2-content-item-count">{{ r_data[index][i] }}
                                     </span>
-
-                                    <!-- CHILDREN -->
-                                    <i v-if="item.children.length"
-                                        class="el-icon-bottom m-talent2-content-item-relate"></i>
                                 </div>
                                 <div v-else class="m-talent2-content-item-empty" :key="i"></div>
                             </template>
