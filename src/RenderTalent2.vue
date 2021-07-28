@@ -383,6 +383,7 @@ export default {
                     this.r_name = xfConfigs[val]?.talent[1];
 
                     this.total = val === '通用' ? 66 : defaultConfigs.total;
+                    this.series_open_need = defaultConfigs.series_open_need;
                 })
         }
     },
