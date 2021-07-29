@@ -1,57 +1,76 @@
-.m-talent2-box {
-
+.c-talent2-box {
     position: relative;
-    .m-talent2-main {
-        display: flex;
-        position: relative;
-        justify-content: space-between;
-    }
-    .m-talent2-main-title {
-        position: absolute;
-        color: #fff;
-        width: 100%;
-        text-align: center;
-        top: 12px;
-        font-size: 1.2em;
-        text-shadow: 1px 1px 1px black;
-    }
-
-
     background-image: url('./img/bg.png');
     background-repeat: no-repeat;
     min-height: 525px;
     width: 772px;
+}
 
-    .m-talent2-left {
-        width: 50%;
-        flex: auto;
-    }
-    .m-talent2-right {
-        width: 50%;
-        flex: auto;
-    }
+.c-talent2-main {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
 
-    .m-talent2-surplus {
-        position: absolute;
+.c-talent2-left {
+    width: 50%;
+    flex: auto;
+}
+.c-talent2-right {
+    width: 50%;
+    flex: auto;
+}
+
+.c-talent2-surplus {
+    position: absolute;
+    color: #fff;
+    right: 30px;
+    top: 45px;
+}
+.c-talent2-actions {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+
+    &-btn {
         color: #fff;
-        right: 30px;
-        top: 45px;
+        border: none;
+        padding: 5px 25px;
+        background-image: linear-gradient(to bottom, #898B8A 50%, #595B5A 50%);
     }
-    .m-talent2-actions {
-        position: absolute;
-        right: 30px;
-        bottom: 30px;
+}
 
-        &-btn {
-            color: #fff;
-            border: none;
-            padding: 5px 25px;
-            background-image: linear-gradient(to bottom, #898B8A 50%, #595B5A 50%);
+.c-talent2-header {
+    position: absolute;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    top: 12px;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 1px black;
+}
+
+.c-talent2-title{
+    text-align: center;
+    margin:5px 0 0 0;
+    padding:0;
+    font-weight: 400;
+}
+
+.c-talent2-footer{
+    font-size: 14px;
+    position: absolute;
+    right: 18px;
+    bottom: 22px;
+    a{
+        color:#fff;
+        &:hover{
+            color: #c0f974;
         }
     }
 }
 
-.m-talent2-title {
+.c-talent2-group {
     display: flex;
     position: relative;
     align-items: center;
@@ -63,7 +82,7 @@
     background-position: left bottom;
 
 
-    .m-talent2-xf-icon {
+    &-icon {
         width: 30px;
     }
 
@@ -89,7 +108,7 @@
     }
 }
 
-.m-talent2-content {
+.c-talent2-content {
     display: grid;
     padding: 12px 24px;
     height: 76%;
@@ -119,7 +138,7 @@
             border-color: burlywood;
         }
 
-        .m-talent2-talent {
+        .c-talent2-talent {
             position: relative;
 
             &::after {
@@ -145,7 +164,7 @@
             border-radius: 0!important;
         }
 
-        .m-talent2-unselected {
+        .c-talent2-unselected {
             &::before {
                 content: '';
                 position: absolute;
@@ -156,7 +175,7 @@
                 z-index: 10;
             }
         }
-        .m-talent2-skill-unselected {
+        .c-talent2-skill-unselected {
             &::before {
                 transition: opacity 0.2s linear;
                 content: '';
@@ -219,11 +238,11 @@
             border-radius: 5px;
         }
     }
-    .m-talent2-content-item {
+    .c-talent2-content-item {
         user-select: none;
     }
 
-    .m-talent2-pretab {
+    .c-talent2-pretab {
         position: relative;
         &::before {
             content: '';
@@ -239,7 +258,7 @@
 
     // pop
     @name: #ff0;
-    .m-talent2-pop {
+    .c-talent2-pop {
         position: absolute;
         bottom: calc(100% + 3px);
         left: -2px;
@@ -260,32 +279,33 @@
             word-break: break-all;
         }
 
-        .m-talent2-name {
+        .c-talent2-name {
             display: flex;
             justify-content: space-between;
             font-size: 14px;
             line-height: 2;
             color: @name;
 
-            .m-talent2-number {
+            .c-talent2-number {
                 color: #859293;
                 font-size: 14px;
                 font-weight: normal;
             }
         }
-        .m-talent2-type {
+        .c-talent2-type {
             color: #fff;
             font-size: 13px;
             line-height: 20px;
         }
-        .m-talent2-desc {
+        .c-talent2-desc {
             font-size: 12px;
             line-height: 20px;
             color: @name;
         }
-        .m-max {
+        .c-talent2-pop-max {
             color: #fff;
-            font-size: 13px;
+            font-size: 12px;
+            margin-top: 5px;
         }
     }
     .on {

@@ -1,34 +1,36 @@
 <template>
-    <div class="m-talent2-box m-talent2-render-box">
-        <div class="m-talent2-main-title">镇派经脉模拟器</div>
+    <div class="c-talent2-box c-talent2-render-box">
+        <div class="c-talent2-header">
+            <h3 class="c-talent2-title">镇派模拟器</h3>
+        </div>
         <template v-if="xf">
-            <div class="m-talent2-main">
+            <div class="c-talent2-main">
                 <!-- LEFT -->
-                <div class="m-talent2-left">
+                <div class="c-talent2-left">
 
                     <div 
-                        class="m-talent2-content"
+                        class="c-talent2-content"
                         :style="{
                             'background-image': xf ? `url(${talentBg('left', 1)})` : ''
                         }">
-                        <div class="m-talent2-title">
-                            <img class="m-talent2-xf-icon" :src="xfContent[0] | xficon">
-                            <span class="m-talent2-title-count">{{ lCount }}</span>
-                            <span class="m-talent2-title-name">{{ l_name }}</span>
+                        <div class="c-talent2-group">
+                            <img class="c-talent2-group-icon" :src="xfContent[0] | xficon">
+                            <span class="c-talent2-group-count">{{ lCount }}</span>
+                            <span class="c-talent2-group-name">{{ l_name }}</span>
                         </div>
                         <div
-                            class="m-talent2-content-row"
+                            class="c-talent2-content-row"
                             v-for="(row, index) in talentContent.left"
                             :key="'l'+index"
                         >
                             <template v-for="(item, i) in row">
                                 <div
                                     v-if="item"
-                                    class="m-talent2-content-item"
+                                    class="c-talent2-content-item"
                                     :class="[
-                                        {'m-talent2-content-item-skill': item.type === 'skill'},
-                                        !canOperate(index, 'left') ? 'm-talent2-content-item-disabled' : '',
-                                        item.pretab ? 'm-talent2-pretab' : ''
+                                        {'c-talent2-content-item-skill': item.type === 'skill'},
+                                        !canOperate(index, 'left') ? 'c-talent2-content-item-disabled' : '',
+                                        item.pretab ? 'c-talent2-pretab' : ''
                                     ]"
                                     :key="i"
                                     @mouseover="$set(item, 'on', true)"
@@ -37,9 +39,9 @@
                                     <div
                                         :class="[
                                             !canLeftItemOperate(index, i) ? 
-                                                (item.type === 'skill' ? 'm-talent2-skill-unselected' : 'm-talent2-unselected')
-                                                    : 'm-talent2-selected',
-                                            item.type === 'skill' ? '' : 'm-talent2-talent'
+                                                (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected')
+                                                    : 'c-talent2-selected',
+                                            item.type === 'skill' ? '' : 'c-talent2-talent'
                                         ]"
                                     >
                                     <!-- HAS PARENT -->
@@ -60,29 +62,29 @@
                                         >
                                     </div>
                                     <!-- DESC -->
-                                    <span class="m-talent2-pop" :class="item.on ? 'on' : ''">
-                                        <b class="m-talent2-name">
+                                    <span class="c-talent2-pop" :class="item.on ? 'on' : ''">
+                                        <b class="c-talent2-name">
                                             <span>{{ item.name }}</span>
-                                            <span class="m-talent2-number">
+                                            <span class="c-talent2-number">
                                                 第{{ Number(l_data[index][i]) + '/' + item.max }}重
                                             </span>
                                         </b>
-                                        <!-- <b class="m-talent2-type">
+                                        <!-- <b class="c-talent2-type">
                                             {{ item.type === 'talent' ? '被动招式': '主动招式' }}
                                         </b> -->
-                                        <span class="m-talent2-desc">
+                                        <span class="c-talent2-desc">
                                             {{ item.desc }}
                                         </span>
                                         <span
                                             v-if="Number(l_data[index][i]) === item.max"
-                                            class="m-max"
+                                            class="c-talent2-pop-max"
                                         >该招式已练至最高境界</span>
                                     </span>
                                     <!-- COUNT -->
                                     <span v-if="Number(l_data[index][i])"
-                                        class="m-talent2-content-item-count">{{ l_data[index][i] }}</span>
+                                        class="c-talent2-content-item-count">{{ l_data[index][i] }}</span>
                                 </div>
-                                <div v-else class="m-talent2-content-item-empty" :key="i"></div>
+                                <div v-else class="c-talent2-content-item-empty" :key="i"></div>
                             </template>
                         </div>
                     </div>
@@ -90,29 +92,29 @@
 
 
                 <!-- RIGHT -->
-                <div class="m-talent2-right">
+                <div class="c-talent2-right">
                     <div
-                        class="m-talent2-content"
+                        class="c-talent2-content"
                         :style="{
                             'background-image': xf ? `url(${talentBg('right', 1)})` : ''
                         }">
-                        <div class="m-talent2-title">
-                            <img class="m-talent2-xf-icon" :src="xfContent[1] | xficon">
-                            <span class="m-talent2-title-count">{{ rCount }}</span>
-                            <span class="m-talent2-title-name">{{ r_name }}</span>
+                        <div class="c-talent2-group">
+                            <img class="c-talent2-group-icon" :src="xfContent[1] | xficon">
+                            <span class="c-talent2-group-count">{{ rCount }}</span>
+                            <span class="c-talent2-group-name">{{ r_name }}</span>
                         </div>
                         <div
-                            class="m-talent2-content-row"
+                            class="c-talent2-content-row"
                             v-for="(row, index) in talentContent.right"
                             :key="'l'+index"
                         >
                             <template v-for="(item, i) in row">
                                 <div
                                     v-if="item"
-                                    class="m-talent2-content-item" :class="[
-                                        {'m-talent2-content-item-skill': item.type === 'skill'},
-                                        !canOperate(index, 'right') ? 'm-talent2-content-item-disabled' : '',
-                                        item.pretab ? 'm-talent2-pretab' : '',
+                                    class="c-talent2-content-item" :class="[
+                                        {'c-talent2-content-item-skill': item.type === 'skill'},
+                                        !canOperate(index, 'right') ? 'c-talent2-content-item-disabled' : '',
+                                        item.pretab ? 'c-talent2-pretab' : '',
                                     ]"
                                     :key="i"
                                     @mouseover="$set(item, 'on', true)"
@@ -121,9 +123,9 @@
                                     <div
                                         :class="[
                                             !canRightItemOperate(index, i) ?
-                                                (item.type === 'skill' ? 'm-talent2-skill-unselected' : 'm-talent2-unselected')
-                                                    : 'm-talent2-selected',
-                                            item.type === 'skill' ? '' : 'm-talent2-talent'
+                                                (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected')
+                                                    : 'c-talent2-selected',
+                                            item.type === 'skill' ? '' : 'c-talent2-talent'
                                         ]"
                                     >
                                     <!-- HAS PARENT -->
@@ -144,17 +146,17 @@
                                         >
                                     </div>
                                     <!-- DESC -->
-                                    <span class="m-talent2-pop" :class="item.on ? 'on' : ''">
-                                        <b class="m-talent2-name">
+                                    <span class="c-talent2-pop" :class="item.on ? 'on' : ''">
+                                        <b class="c-talent2-name">
                                             <span>{{ item.name }}</span>
-                                            <span class="m-talent2-number">
+                                            <span class="c-talent2-number">
                                                 第{{ Number(r_data[index][i]) + '/' + item.max }}重
                                             </span>
                                         </b>
-                                        <!-- <b class="m-talent2-type">
+                                        <!-- <b class="c-talent2-type">
                                             {{ item.type === 'talent' ? '被动招式': '主动招式' }}
                                         </b> -->
-                                        <span class="m-talent2-desc">
+                                        <span class="c-talent2-desc">
                                             {{ item.desc }}
                                         </span>
                                         <span
@@ -165,16 +167,17 @@
 
                                     <!-- COUNT -->
                                     <span v-if="Number(r_data[index][i])"
-                                        class="m-talent2-content-item-count">{{ r_data[index][i] }}
+                                        class="c-talent2-content-item-count">{{ r_data[index][i] }}
                                     </span>
                                 </div>
-                                <div v-else class="m-talent2-content-item-empty" :key="i"></div>
+                                <div v-else class="c-talent2-content-item-empty" :key="i"></div>
                             </template>
                         </div>
                     </div>
                 </div>
             </div>
         </template>
+        <div class="c-talent2-footer"><a href="https://www.jx3box.com/app/talent2" target="_blank">JX3BOX Talent2 v1.0</a></div>
     </div>
 </template>
 
@@ -187,6 +190,7 @@ import {
 } from "@jx3box/jx3box-common/data/jx3box.json";
 import { xfConfigs } from '@jx3box/jx3box-data/data/app/talent2.json';
 import { defaultXf, defaultConfigs } from './default.json';
+import {iconLink} from '@jx3box/jx3box-common/js/utils.js'
 export default {
     name: 'TalentRender',
     props: {
@@ -385,7 +389,7 @@ export default {
             return __imgPath + "image/xf/" + id + ".png";
         },
         talentIcon: function(id) {
-            return __iconPath + "icon/" + id + ".png";
+            return iconLink(id);
         }
     },
     watch: {
@@ -402,6 +406,5 @@ export default {
 </script>
 
 <style lang="less">
-// @import "./talent.less";
 @import "./talent2.less";
 </style>

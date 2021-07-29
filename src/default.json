@@ -171,28 +171,16 @@
                     "name": "大战",
                     "type": "talent",
                     "icon": 812,
-                    "max": 2,
+                    "max": 5,
                     "desc": "霸王弩，大战随便来四等一！"
                 },
-                {
-                    "name": "茶馆",
-                    "type": "talent",
-                    "icon": 105,
-                    "max": 2,
-                    "desc": "官爷，辛苦了！"
-                },
-                {
-                    "name": "美人图",
-                    "type": "talent",
-                    "icon": 293,
-                    "max": 2,
-                    "desc": "壁咚一名少侠！"
-                },
+                null,
+                null,
                 {
                     "name": "南屏昆仑",
                     "type": "talent",
                     "icon": 8313,
-                    "max": 2,
+                    "max": 5,
                     "desc": "完成威望日常。"
                 }
             ],
@@ -212,7 +200,7 @@
                     "desc": "婉清……你听我说。"
                 },
                 {
-                    "name": "云湖天池",
+                    "name": "云湖",
                     "type": "talent",
                     "icon": 9,
                     "max": 2,
@@ -263,21 +251,21 @@
                     "type": "talent",
                     "icon": 5352,
                     "max": 5,
-                    "desc": "精通圆桌理论，成为合格的地痞艾斯。"
+                    "desc": "成为一名地痞艾斯。"
                 },
                 {
                     "name": "打地鼠",
                     "type": "talent",
-                    "icon": 413,
+                    "icon": 1498,
                     "max": 2,
-                    "desc": "精通减伤规则，成为优秀的奶妈。"
+                    "desc": "成为一名奶妈。"
                 },
                 {
                     "name": "我是MT",
                     "type": "talent",
                     "icon": 646,
                     "max": 2,
-                    "desc": "精通嘲讽规则，成为合格的坦克。"
+                    "desc": "成为一名坦克。"
                 },
                 {
                     "name": "全职高手",
@@ -297,20 +285,27 @@
                     "pretab": 1
                 },
                 {
-                    "name": "嘤嘤嘤",
+                    "name": "茶艺",
                     "type": "talent",
-                    "icon": 6738,
-                    "max": 1,
-                    "desc": "成为一名团长夫人。"
+                    "icon": 105,
+                    "max": 9,
+                    "desc": "学习嘤嘤嘤的正确喊话方式。",
+                    "pretab": 1
                 },
-                null,
                 {
                     "name": "号令三军",
-                    "type": "talent",
+                    "type": "skill",
                     "icon": 2588,
                     "max": 1,
                     "desc": "成为一名团长或指挥。",
                     "pretab": 1
+                },
+                {
+                    "name": "喷艺",
+                    "type": "talent",
+                    "icon": 1488,
+                    "max": 9,
+                    "desc": "在贴吧发表一篇818。"
                 }
             ],
             [
@@ -322,15 +317,23 @@
                     "desc": "精通墨艺，成为门派大师兄或门派大师姐。",
                     "pretab": 1
                 },
+                {
+                    "name": "倾国倾城",
+                    "type": "talent",
+                    "icon": 6738,
+                    "max": 1,
+                    "desc": "成为一名团长夫人。",
+                    "pretab": 1
+                },
                 null,
                 {
-                    "name": "汪",
+                    "name": "谁与争锋",
                     "type": "skill",
                     "icon": 272,
-                    "max": 9,
-                    "desc": "喷艺九段，成为优秀的键盘侠。"
-                },
-                null
+                    "max": 1,
+                    "desc": "成为一名优秀的键盘侠。",
+                    "pretab": 1
+                }
             ]
         ]
     },
