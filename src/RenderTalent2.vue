@@ -73,7 +73,7 @@
                                             {{ item.type === 'talent' ? '被动招式': '主动招式' }}
                                         </b> -->
                                         <span class="c-talent2-desc">
-                                            {{ !Number(l_data[index][i])
+                                            {{ !Number(l_data[index][i]) || xf === '通用'
                                                 ? item.desc[0]
                                                 : item.desc[l_data[index][i] - 1]
                                             }}
@@ -82,7 +82,7 @@
                                             v-if="Number(l_data[index][i]) && Number(l_data[index][i]) < item.max"
                                             class="c-talent2-desc-next"
                                         >
-                                            <span class="c-next-text">下一重：</span>
+                                            <span v-if="xf !== '通用'" class="c-next-text">下一重：</span>
                                             <span>
                                                 {{
                                                     item.desc[l_data[index][i]]
@@ -171,7 +171,7 @@
                                             {{ item.type === 'talent' ? '被动招式': '主动招式' }}
                                         </b> -->
                                         <span class="c-talent2-desc">
-                                            {{ !Number(r_data[index][i])
+                                            {{ !Number(r_data[index][i]) || xf === '通用'
                                                 ? item.desc[0]
                                                 : item.desc[r_data[index][i] - 1]
                                             }}
@@ -180,7 +180,7 @@
                                             v-if="Number(r_data[index][i]) && Number(r_data[index][i]) < item.max"
                                             class="c-talent2-desc-next"
                                         >
-                                            <span class="c-next-text">下一重：</span>
+                                            <span v-if="xf !== '通用'" class="c-next-text">下一重：</span>
                                             <span>
                                                 {{
                                                     item.desc[r_data[index][i]]
@@ -189,7 +189,7 @@
                                         </span>
                                         <span
                                             v-if="Number(r_data[index][i]) === item.max"
-                                            class="m-max"
+                                            class="c-talent2-pop-max"
                                         >该招式已练至最高境界</span>
                                     </span>
 
