@@ -98,7 +98,7 @@
                                     <span v-if="Number(l_data[index][i])"
                                         class="c-talent2-content-item-count">{{ l_data[index][i] }}</span>
                                 </div>
-                                <div v-else class="c-talent2-content-item-empty" :key="i"></div>
+                                <div v-else class="c-talent2-content-item-empty" :key="i + 'empty'"></div>
                             </template>
                         </div>
                     </div>
@@ -198,7 +198,7 @@
                                         class="c-talent2-content-item-count">{{ r_data[index][i] }}
                                     </span>
                                 </div>
-                                <div v-else class="c-talent2-content-item-empty" :key="i"></div>
+                                <div v-else class="c-talent2-content-item-empty" :key="i + 'empty'"></div>
                             </template>
                         </div>
                     </div>
@@ -220,7 +220,7 @@ import { xfConfigs } from '@jx3box/jx3box-data/data/app/talent2.json';
 import { defaultXf, defaultConfigs } from './default.json';
 import {iconLink} from '@jx3box/jx3box-common/js/utils.js'
 export default {
-    name: 'TalentRender',
+    name: 'RenderTalent2',
     props: {
         talentCode: {
             type: String,
@@ -272,6 +272,7 @@ export default {
         // 渲染镇派
         async renderTalents() {
             try {
+                console.log(this.talentCode)
                 this.parseCode = JSON.parse(this.talentCode);
                 this.version = this.parseCode.version;
                 await this.getTalents();
