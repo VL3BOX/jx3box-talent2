@@ -19,3 +19,7 @@ props
   ```json
   {"version":"v20210719","xf":"冰心诀","sq":"0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000"}
   ```
+
+
+### CDN刷新列表
+https://oss.jx3box.com/static/jx3box-talent2

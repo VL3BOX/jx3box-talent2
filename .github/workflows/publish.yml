@@ -44,7 +44,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-  
+
+      - name: Install && Build
+        run: |
+          npm install
+          npm run build
+
       - name: OSS
         uses: manyuanrong/setup-ossutil@v2.0
         with:
