@@ -37,22 +37,18 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-  # build:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 12
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
   
-  #     - name: OSS
-  #       uses: manyuanrong/setup-ossutil@v2.0
-  #       with:
-  #         endpoint: "oss-cn-hangzhou.aliyuncs.com"
-  #         access-key-id: ${{secrets.AccessKey_ID}}
-  #         access-key-secret: ${{secrets.Access_Key_Secret}}
-  #     - run: ossutil cp -rf data oss://jx3box/data/global
-  #     - run: ossutil cp -rf js oss://jx3box/static/jx3box-common/js
-  #     - run: ossutil cp -rf css oss://jx3box/static/jx3box-common/css
-  #     - run: ossutil cp -rf css oss://jx3box-www/jx3box-common/css
-  #     - run: ossutil cp -rf fonts oss://jx3box/static/fonts
+      - name: OSS
+        uses: manyuanrong/setup-ossutil@v2.0
+        with:
+          endpoint: "oss-cn-hangzhou.aliyuncs.com"
+          access-key-id: ${{secrets.AccessKey_ID}}
+          access-key-secret: ${{secrets.Access_Key_Secret}}
+      - run: ossutil cp -rf dist oss://jx3box/static/jx3box-talent2
