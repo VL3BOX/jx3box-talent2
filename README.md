@@ -2,7 +2,7 @@
 
 usage
 
-```js
+```javascript
 // install
 npm i --save @jx3box/jx3box-talent2
 
