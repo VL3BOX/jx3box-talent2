@@ -41,7 +41,8 @@
                                             !canLeftItemOperate(index, i) ? 
                                                 (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected')
                                                     : 'c-talent2-selected',
-                                            item.type === 'skill' ? '' : 'c-talent2-talent'
+                                            item.type === 'skill' ? '' : 'c-talent2-talent',
+                                            !surplus && !Number(l_data[index][i]) ? 'm-talent2-unselected' : ''
                                         ]"
                                     >
                                     <!-- HAS PARENT -->
@@ -51,7 +52,7 @@
                                         ></span>
                                     <!-- TOTAL ZERO -->
                                         <span 
-                                            :class="!(total - totalCount) && !Number(l_data[index][i]) 
+                                            :class="!(surplus) && !Number(l_data[index][i]) 
                                                 ? (item.type === 'talent' ?'is-add' : 'is-add-skill') : ''"
                                         ></span>
                                         <img 
@@ -139,7 +140,8 @@
                                             !canRightItemOperate(index, i) ?
                                                 (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected')
                                                     : 'c-talent2-selected',
-                                            item.type === 'skill' ? '' : 'c-talent2-talent'
+                                            item.type === 'skill' ? '' : 'c-talent2-talent',
+                                            !surplus && !Number(r_data[index][i]) ? 'm-talent2-unselected' : ''
                                         ]"
                                     >
                                     <!-- HAS PARENT -->
@@ -149,7 +151,7 @@
                                         ></span>
                                     <!-- TOTAL ZERO -->
                                         <span
-                                            :class="!(total - totalCount) && !Number(r_data[index][i]) ?
+                                            :class="!(surplus) && !Number(r_data[index][i]) ?
                                                 (item.type === 'talent' ?'is-add' : 'is-add-skill'): ''"
                                         ></span>
                                         <img
@@ -266,6 +268,9 @@ export default {
         },
         totalCount: function() {
             return this.lCount + this.rCount;
+        },
+        surplus: function (){
+            return this.total - this.totalCount;
         }
     },
     methods: {
