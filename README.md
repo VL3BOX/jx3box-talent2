@@ -1,6 +1,6 @@
-## 怀旧服镇派
+# 怀旧服镇派
 
-usage
+## Usage
 
 ```javascript
 // install
@@ -20,6 +20,10 @@ props
   {"version":"v20210719","xf":"冰心诀","sq":"0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000,0000"}
   ```
 
+## Dev
+http://localhost:5000/?code=eyJ2ZXJzaW9uIjoidjIwMjEwODE0IiwieGYiOiLlgrLooYDmiJjmhI8iLCJzcSI6IjEzMjAsMDIxMiwyMTExLDIyMjAsMDIxMCwwMTAwLDAxMzAsMDAwMCwwMDAwLDAwMDAsMDAwMCwwMDAwIn0=
 
-### CDN刷新列表
-https://oss.jx3box.com/static/jx3box-talent2
+
+## Deploy
++ CDN刷新 https://oss.jx3box.com/static/jx3box-talent2
++ app/macro库同步
