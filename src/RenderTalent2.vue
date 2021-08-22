@@ -42,18 +42,19 @@
                                                 (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected')
                                                     : 'c-talent2-selected',
                                             item.type === 'skill' ? '' : 'c-talent2-talent',
-                                            !surplus && !Number(l_data[index][i]) ? 'm-talent2-unselected' : ''
+                                            !surplus && !Number(l_data[index][i]) ? 
+                                                (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected') : ''
                                         ]"
                                     >
                                     <!-- HAS PARENT -->
                                         <span
-                                            v-if="item.pretab && !isLeftParentAdd(index, i)"
+                                            v-if="item.pretab && !isLeftParentAdd(index, i) && canLeftItemOperate(index, i)"
                                             :class="item.type === 'skill' ? 'is-add-skill' : 'is-add'"
                                         ></span>
                                     <!-- TOTAL ZERO -->
-                                        <span 
-                                            :class="!(surplus) && !Number(l_data[index][i]) 
-                                                ? (item.type === 'talent' ?'is-add' : 'is-add-skill') : ''"
+                                        <span
+                                            v-if="!surplus && !Number(l_data[index][i])"
+                                            :class="item.type === 'skill' ? 'is-add-skill' : 'is-add'"
                                         ></span>
                                         <img 
                                             class="talent-img" 
@@ -141,18 +142,19 @@
                                                 (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected')
                                                     : 'c-talent2-selected',
                                             item.type === 'skill' ? '' : 'c-talent2-talent',
-                                            !surplus && !Number(r_data[index][i]) ? 'm-talent2-unselected' : ''
+                                            !surplus && !Number(r_data[index][i]) ? 
+                                                (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected') : ''
                                         ]"
                                     >
                                     <!-- HAS PARENT -->
                                         <span 
-                                            v-if="item.pretab && !isLeftParentAdd(index, i)"
+                                            v-if="item.pretab && !isRightParentAdd(index, i) && canRightItemOperate(index, i)"
                                             :class="item.type === 'skill' ? 'is-add-skill' : 'is-add'" 
                                         ></span>
                                     <!-- TOTAL ZERO -->
                                         <span
-                                            :class="!(surplus) && !Number(r_data[index][i]) ?
-                                                (item.type === 'talent' ?'is-add' : 'is-add-skill'): ''"
+                                            v-if="!surplus && !Number(r_data[index][i])"
+                                            :class="item.type === 'skill' ? 'is-add-skill' : 'is-add'"
                                         ></span>
                                         <img
                                             class="talent-img"
