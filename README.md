@@ -25,5 +25,4 @@ http://localhost:5000/?code=eyJ2ZXJzaW9uIjoidjIwMjEwODE0IiwieGYiOiLlgrLooYDmiJjm
 
 
 ## Deploy
-+ CDN刷新 https://oss.jx3box.com/static/jx3box-talent2
-+ app/macro库同步
++ CDN刷新 https://oss.jx3box.com/static/jx3box-talent2/ 目录
