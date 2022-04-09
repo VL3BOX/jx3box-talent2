@@ -59,14 +59,16 @@
                                         <img 
                                             class="talent-img" 
                                             :class="{ 'skill-img': item.type === 'skill' }" 
-                                            :src="item.icon | talentIcon" 
+                                            :src="item.icon | iconLink" 
                                             :alt="item.name"
                                         >
                                     </div>
                                     <!-- DESC -->
                                     <span class="c-talent2-pop" :class="item.on ? 'on' : ''">
                                         <b class="c-talent2-name">
-                                            <span>{{ item.name }}</span>
+                                            <span>{{ item.name }}
+                                                <small class="u-talent2-id" v-if="item.id">(ID: {{ item.id }})</small>
+                                            </span>
                                             <span class="c-talent2-number">
                                                 第{{ Number(l_data[index][i]) + '/' + item.max }}重
                                             </span>
@@ -159,14 +161,16 @@
                                         <img
                                             class="talent-img"
                                             :class="{ 'skill-img': item.type === 'skill' }"
-                                            :src="item.icon | talentIcon"
+                                            :src="item.icon | iconLink"
                                             :alt="item.name"
                                         >
                                     </div>
                                     <!-- DESC -->
                                     <span class="c-talent2-pop" :class="item.on ? 'on' : ''">
                                         <b class="c-talent2-name">
-                                            <span>{{ item.name }}</span>
+                                            <span>{{ item.name }}
+                                                <small class="u-talent2-id" v-if="item.id">(ID: {{ item.id }})</small>
+                                            </span>
                                             <span class="c-talent2-number">
                                                 第{{ Number(r_data[index][i]) + '/' + item.max }}重
                                             </span>
@@ -222,7 +226,7 @@ import {
 } from "@jx3box/jx3box-common/data/jx3box.json";
 import { xfConfigs } from '@jx3box/jx3box-data/data/app/talent2.json';
 import { defaultXf, defaultConfigs } from './default.json';
-import {iconLink} from '@jx3box/jx3box-common/js/utils.js'
+import {iconLink} from '@jx3box/jx3box-common/js/utils'
 export default {
     name: 'RenderTalent2',
     props: {
@@ -424,8 +428,8 @@ export default {
         xficon: function(id) {
             return __imgPath + "image/xf/" + id + ".png";
         },
-        talentIcon: function(id) {
-            return iconLink(id);
+        iconLink: function (id){
+            return iconLink(id, 'origin');
         }
     },
     watch: {
