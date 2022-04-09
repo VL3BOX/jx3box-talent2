@@ -1,12 +1,13 @@
 {
   "name": "@jx3box/jx3box-talent2",
-  "version": "1.2.4",
+  "version": "1.2.7",
   "description": "origin talent",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "update": "npm --registry https://registry.npmjs.org install @jx3box/jx3box-common@latest @jx3box/jx3box-data"
   },
   "repository": {
     "type": "git",
