@@ -38,11 +38,11 @@
                                 >
                                     <div
                                         :class="[
-                                            !canLeftItemOperate(index, i) ? 
+                                            !canLeftItemOperate(index, i) ?
                                                 (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected')
                                                     : 'c-talent2-selected',
                                             item.type === 'skill' ? '' : 'c-talent2-talent',
-                                            !surplus && !Number(l_data[index][i]) ? 
+                                            !surplus && !Number(l_data[index][i]) ?
                                                 (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected') : ''
                                         ]"
                                     >
@@ -56,9 +56,9 @@
                                             v-if="!surplus && !Number(l_data[index][i])"
                                             :class="item.type === 'skill' ? 'is-add-skill' : 'is-add'"
                                         ></span>
-                                        <img 
-                                            class="talent-img" 
-                                            :class="{ 'skill-img': item.type === 'skill' }" 
+                                        <img
+                                            class="talent-img"
+                                            :class="{ 'skill-img': item.type === 'skill' }"
                                             :src="iconLink(item.icon)"
                                             :alt="item.name"
                                         />
@@ -147,7 +147,7 @@
                                                 (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected')
                                                     : 'c-talent2-selected',
                                             item.type === 'skill' ? '' : 'c-talent2-talent',
-                                            !surplus && !Number(r_data[index][i]) ? 
+                                            !surplus && !Number(r_data[index][i]) ?
                                                 (item.type === 'skill' ? 'c-talent2-skill-unselected' : 'c-talent2-unselected') : ''
                                         ]"
                                     >
@@ -230,7 +230,7 @@ import {
     __ossRoot,
     __iconPath,
 } from "@jx3box/jx3box-common/data/jx3box.json";
-import { xfConfigs } from "@jx3box/jx3box-data/data/app/talent2.json";
+import { xfConfigs } from "./talent2.json";
 import { defaultXf, defaultConfigs } from "./default.json";
 import { iconLink } from "@jx3box/jx3box-common/js/utils";
 import { version } from "../package.json";

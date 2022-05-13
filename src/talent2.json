@@ -1,0 +1,79 @@
+{
+    "xfConfigs": {
+        "冰心诀": {
+            "begin": "left",
+            "content": [10081, 10080],
+            "talent": ["拥雪", "蝶舞"]
+        },
+        "云裳心经": {
+            "begin": "right",
+            "content": [10081, 10080],
+            "talent": ["拥雪", "蝶舞"]
+        },
+        "傲血战意": {
+            "begin": "left",
+            "content": [10026, 10062],
+            "talent": ["斩绝", "封魂"]
+        },
+        "铁牢律": {
+            "begin": "right",
+            "content": [10026, 10062],
+            "talent": ["斩绝", "封魂"]
+        },
+        "花间游": {
+            "begin": "left",
+            "content": [10021, 10028],
+            "talent": ["墨艺", "悬壶"]
+        },
+        "离经易道": {
+            "begin": "right",
+            "content": [10021, 10028],
+            "talent": ["墨艺", "悬壶"]
+        },
+        "太虚剑意": {
+            "begin": "left",
+            "content": [10015, 10014],
+            "talent": ["剑宗", "气宗"]
+        },
+        "紫霞功": {
+            "begin": "right",
+            "content": [10015, 10014],
+            "talent": ["剑宗", "气宗"]
+        },
+        "易筋经": {
+            "begin": "left",
+            "content": [10003, 10002],
+            "talent": ["金刚", "明王"]
+        },
+        "洗髓经": {
+            "begin": "right",
+            "content": [10003, 10002],
+            "talent": ["金刚", "明王"]
+        },
+        "问水诀": {
+            "begin": "left",
+            "content": [10144, 10145],
+            "talent": ["行舟", "枫晚"]
+        },
+        "山居剑意": {
+            "begin": "right",
+            "content": [10144, 10145],
+            "talent": ["行舟", "枫晚"]
+        },
+        "百蛊": {
+            "begin": "left",
+            "content": [10175, 10176],
+            "talent": ["百蛊", "织天"]
+        },
+        "织天": {
+            "begin": "right",
+            "content": [10175, 10176],
+            "talent": ["百蛊", "织天"]
+        },
+        "通用": {
+            "begin": "left",
+            "content": [0, 0],
+            "talent": ["山川", "日月"]
+        }
+    }
+}
