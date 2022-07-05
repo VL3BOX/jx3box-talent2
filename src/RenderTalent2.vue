@@ -233,7 +233,6 @@ import { xfConfigs } from "./talent2.json";
 import { defaultXf, defaultConfigs } from "./default.json";
 import { iconLink } from "@jx3box/jx3box-common/js/utils";
 import { version } from "../package.json";
-import { total, series_open_need } from "./config.json";
 export default {
     name: "RenderTalent2",
     props: {
@@ -250,10 +249,10 @@ export default {
 
         version : '',
         talents: [], // 镇派数据
-        total,
+        total: 33,
         l_data: ["0000", "0000", "0000", "0000", "0000", "0000"],
         r_data: ["0000", "0000", "0000", "0000", "0000", "0000"],
-        series_open_need,
+        series_open_need: 26,
 
         // 心法字符串对应的心法id，用于左右背景
         xfContent: [],
