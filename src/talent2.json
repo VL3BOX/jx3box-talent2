@@ -71,12 +71,12 @@
             "talent": ["百蛊", "织天"]
         },
         "天罗诡道": {
-            "begin": "left",
+            "begin": "right",
             "content": [10224,10225],
             "talent": ["落星","天机"]
         },
         "惊羽诀": {
-            "begin": "right",
+            "begin": "left",
             "content": [10224, 10225],
             "talent": ["落星","天机"]
         },
