@@ -224,7 +224,6 @@
 </template>
 
 <script>
-import xfmap from "@jx3box/jx3box-data/data/xf/xf.json";
 import {
     __imgPath,
     __ossRoot,
@@ -250,7 +249,6 @@ export default {
 
         version : '',
         talents: [], // 镇派数据
-        xfmap,
         total: 33,
         l_data: ["0000", "0000", "0000", "0000", "0000", "0000"],
         r_data: ["0000", "0000", "0000", "0000", "0000", "0000"],
