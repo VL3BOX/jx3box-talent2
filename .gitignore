@@ -25,6 +25,3 @@ yarn-error.log*
 .nuxt
 .history/
 
-output
-raw
-tools
