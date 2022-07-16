@@ -48,7 +48,7 @@ jobs:
       - name: Install && Build
         run: |
           npm install
-          npm run build
+          npm run iframe
 
       - name: Github Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
