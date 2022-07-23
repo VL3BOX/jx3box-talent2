@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "update": "npm --registry https://registry.npmjs.org install @jx3box/jx3box-common@latest"
+    "update": "npm --registry https://registry.npmjs.org install @jx3box/jx3box-common@latest",
+    "talent" : "node ./tools/build.js"
   },
   "repository": {
     "type": "git",
