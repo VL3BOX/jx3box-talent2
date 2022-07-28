@@ -1,6 +1,6 @@
 {
   "name": "@jx3box/jx3box-talent2",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "origin talent",
   "main": "index.js",
   "scripts": {
