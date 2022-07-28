@@ -37,32 +37,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
 
-      - name: Install && Build
-        run: |
-          npm install
-          npm run iframe
-
-      - name: Github Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist
-          CLEAN: true
-          # CLEAN_EXCLUDE: '["css", "js"]'
-
-      - name: OSS
-        uses: manyuanrong/setup-ossutil@v2.0
-        with:
-          endpoint: "oss-cn-hangzhou.aliyuncs.com"
-          access-key-id: ${{secrets.AccessKey_ID}}
-          access-key-secret: ${{secrets.Access_Key_Secret}}
-      - run: ossutil cp -rf dist oss://jx3box/static/jx3box-talent2
