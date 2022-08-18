@@ -219,6 +219,7 @@ BuffID	Level	IconID	Sparking	ShowTime	Show	Remark	Name	Desc
 244	7	0	1	1	1	(244)(7)骑乘	骑乘	骑乘
 244	8	6799	0	0	1	(244)(8)骑乘	搭乘·游湖画舫	碧波荡漾水中游
 244	9	0	1	1	1	(244)(9)骑乘	骑乘	骑乘
+244	13	8115	0	0	1	(244)(13)骑乘	乘骑·雪负苍山	雪玉佛睛，足绝群峰
 244	24	9709	0	0	1	(244)(24)骑乘	搭乘·黛篁鸾舆	西山秘宝·黛篁鸾舆
 244	87	17246	0	0	1	(244)(87)骑乘_红红女王号	红红女王号	原来最高境界是吃蛋炒饭，送老婆！
 245	1	360	1	1	1	(245)(1)洗尘宴	进食	根骨提高<BUFF atSpiritBase>点，元气提高<BUFF atSpunkBase>点，内力最大值提高<BUFF atMaxManaAdditional>点，每秒恢复的内力值提高<BUFF atManaReplenishExt>点
@@ -6170,3 +6171,4 @@ BuffID	Level	IconID	Sparking	ShowTime	Show	Remark	Name	Desc
 50471	1	360	1	1	1	(50471)(1)外功宴席	进食	外功攻击提高<BUFF atPhysicsAttackPowerBase>点，外功会心提高<BUFF atPhysicsCriticalStrike>点，外功命中提高<BUFF atPhysicsHitValue>点
 50472	1	360	1	1	1	(50472)(1)内功宴席	进食	内功攻击提高<BUFF atMagicAttackPowerBase>点，内功会心提高<BUFF atMagicCriticalStrike>点，内功命中提高<BUFF atMagicHitValue>点
 50473	1	360	1	1	1	(50473)(1)治疗宴席	进食	治疗量提高<BUFF atTherapyPowerBase>点，内功会心提高<BUFF atMagicCriticalStrike>点，加速提高<BUFF atHasteBase>点
+50478	1	14833	1	1	1	(50478)(1)大攻防战阶防刷标记	锐挫	侠士气势受挫，即使被重伤也无法提供威望值及战阶积分
