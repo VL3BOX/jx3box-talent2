@@ -6172,3 +6172,4 @@ BuffID	Level	IconID	Sparking	ShowTime	Show	Remark	Name	Desc
 50472	1	360	1	1	1	(50472)(1)内功宴席	进食	内功攻击提高<BUFF atMagicAttackPowerBase>点，内功会心提高<BUFF atMagicCriticalStrike>点，内功命中提高<BUFF atMagicHitValue>点
 50473	1	360	1	1	1	(50473)(1)治疗宴席	进食	治疗量提高<BUFF atTherapyPowerBase>点，内功会心提高<BUFF atMagicCriticalStrike>点，加速提高<BUFF atHasteBase>点
 50478	1	14833	1	1	1	(50478)(1)大攻防战阶防刷标记	锐挫	侠士气势受挫，即使被重伤也无法提供威望值及战阶积分
+50482	1	3409	0	0	1	(50482)(1)尚武遗迹_逃兵	逃兵	强行提前离开尚武遗迹，暂时不能再进入尚武遗迹队列
