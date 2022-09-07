@@ -26,3 +26,12 @@ http://localhost:5000/?code=eyJ2ZXJzaW9uIjoidjIwMjEwODE0IiwieGYiOiLlgrLooYDmiJjm
 
 ## Deploy
 + CDN刷新 https://oss.jx3box.com/static/jx3box-talent2/ 目录
+
+
+# 部署流程
++ 更新版本号
++ 构建发布完Npm包后
++ 更新app库对此库的依赖并部署
++ 更新macro库对此库的依赖并部署
++ 更新pz库对此库的依赖并部署
+
