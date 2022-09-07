@@ -349,7 +349,10 @@ export default {
                     canOperate = true;
                 }
             }
-
+            // 渲染的时候，已经点了的就是亮的
+            if(this.l_data[rowIndex][colIndex] != '0'){
+                canOperate = true;
+            }
             return canOperate;
         },
         /**
@@ -382,6 +385,10 @@ export default {
                 ) {
                     canOperate = true;
                 }
+            }
+            // 渲染的时候，已经点了的就是亮的
+            if(this.r_data[rowIndex][colIndex] != '0'){
+                canOperate = true;
             }
             return canOperate;
         },
