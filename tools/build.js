@@ -149,5 +149,6 @@ const dist = "../output";
     Logger.success('renderBpsTalent2 结束，输出结果');
     fs.writeFileSync(path.join(__dirname, dist, `/v${dateFormat(new Date())}.json`), JSON.stringify(datas.output));
     fs.writeFileSync(path.join(__dirname, dist, `/talent2.json`), JSON.stringify(datas.talent2));
+    fs.writeFileSync(path.join(__dirname, `../src/data/talent2.json`), JSON.stringify(datas.talent2));
     Logger.success('结果已输出，脚本运行结束');
 })();
