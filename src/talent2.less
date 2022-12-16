@@ -6,6 +6,30 @@
     background-repeat: no-repeat;
     min-height: 525px;
     width: 772px;
+
+    &.webview {
+        background: none;
+        width: 100vw;
+        height: unset;
+
+        .c-talent2-header, .c-talent2-footer {
+            display: none;
+        }
+        .c-talent2-content {
+            margin: 15px;
+            background-position: center;
+        }
+
+
+        .c-talent2-main {
+            flex-direction: column;
+        }
+
+        .c-talent2-left, .c-talent2-right {
+            width: unset;
+            flex: 1;
+        }
+    }
 }
 
 .c-talent2-main {
@@ -330,31 +354,5 @@
     }
     .on {
         display: block;
-    }
-}
-
-@media screen and (max-width: @phone) {
-    .c-talent2-box {
-        background: none;
-        width: 100vw;
-        height: unset;
-    }
-
-    .c-talent2-header, .c-talent2-footer {
-        display: none;
-    }
-    .c-talent2-content {
-        margin: 15px;
-        background-position: center;
-    }
-
-
-    .c-talent2-main {
-        flex-direction: column;
-    }
-
-    .c-talent2-left, .c-talent2-right {
-        width: unset;
-        flex: 1;
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <render-talent :talent-code="code"></render-talent>
+    <render-talent :talent-code="code" :webview="webview"></render-talent>
 </template>
 
 <script>
@@ -8,7 +8,8 @@ export default {
     name: 'Talent2Plugin',
     data() {
         return {
-            code: ''
+            code: '',
+            webview: false
         }
     },
     methods: {
@@ -28,6 +29,8 @@ export default {
             const _code = code && code.join('').slice(5);
 
             this.code = this.decodeCode(_code)
+
+            this.webview = new URLSearchParams(document.location.search).get('webview') === 'true'
         }
     },
     created: function() {

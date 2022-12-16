@@ -1,5 +1,5 @@
 <template>
-    <div class="c-talent2-box c-talent2-render-box">
+    <div class="c-talent2-box c-talent2-render-box" :class="{ 'webview': webview }">
         <div class="c-talent2-header">
             <h3 class="c-talent2-title">镇派模拟器</h3>
         </div>
@@ -240,6 +240,10 @@ export default {
             type: String,
             default: "",
         },
+        webview: {
+            type: Boolean,
+            default: false,
+        }
     },
     data: () => ({
         xf: "",
