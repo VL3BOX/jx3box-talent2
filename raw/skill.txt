@@ -7727,6 +7727,8 @@ SkillID	Level	IconID	Show	CombatShow	Formation	FormationCaster	PracticeID	SortOr
 21151	1	8394	1	1	0	0	0	1	(1) TestSkill	变宠物	测试技能		将周身20尺内随机20个玩家变成宠物			1	1			1				0		0
 21152	1	19	1	1	0	0	0	1	(1) TestSkill	剑心认真拳	击飞周围玩家					1	1			1						0
 21156	1	3319	1	1	0	0	0	1	(1) TestSkill	凌波微步	加速跑					1	1			1				0		0
+21279	1	11440	1	1	0	0	0	1	(21279) 背挂_灯笼舞	夕殿阑灯	夕殿残烛尽，阑夜不成眠。					1	1			1				0		0
+21280	1	4940	1	1	0	0	0	1	(21280) 背挂_灯笼退出	退出	收起夕殿阑灯。					1	1			1				0		0
 21716	0	13	1	1	0	0	0	1	(21716) 九转归一碰撞触发伤害	九转归一·冲撞	<SKILL NeutralDamage>点(+<SKILLEx {D0} {SkillNeutralAP}>)					1	1			1				0		0
 22148	1	2965	1	1	0	0	0	1	(1) TestSkill	锻炼身体	多锻炼，身体棒！					1	1			1				0		0
 22148	2	738	1	1	0	0	0	1	(1) TestSkill	写字	点,横,竖,撇,捺……哈，写完了~不错不错					1	1			1				0		0
