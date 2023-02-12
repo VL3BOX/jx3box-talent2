@@ -1,37 +1,46 @@
 name: OSS
 on:
-  push:
-    branches:
-      - master
+    push:
+        branches:
+            - master
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12
 
-      - name: Install && Build
-        run: |
-          npm install
-          npm run build
+            - uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.HOST_NANJING2 }}
+                  username: ${{ secrets.DEPLOY_USER }}
+                  key: ${{ secrets.DEPLOY_KEY }}
+                  script: |
+                      cd /www/wwwroot/jx3box/data
+                      cd jx3box-talent2
+                      git pull origin master
 
-      - name: Github Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist
-          CLEAN: true
-          # CLEAN_EXCLUDE: '["css", "js"]'
+            - name: Install && Build
+              run: |
+                  npm install
+                  npm run build
 
-      - name: OSS
-        uses: manyuanrong/setup-ossutil@v2.0
-        with:
-          endpoint: "oss-cn-hangzhou.aliyuncs.com"
-          access-key-id: ${{secrets.AccessKey_ID}}
-          access-key-secret: ${{secrets.Access_Key_Secret}}
-      - run: ossutil cp -rf dist oss://jx3box/static/jx3box-talent2
-      - run: ossutil cp -rf output oss://jx3box/data/talent2
+            - name: Github Pages
+              uses: JamesIves/github-pages-deploy-action@releases/v3
+              with:
+                  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+                  BRANCH: gh-pages
+                  FOLDER: dist
+                  CLEAN: true
+                  # CLEAN_EXCLUDE: '["css", "js"]'
 
+            - name: OSS
+              uses: manyuanrong/setup-ossutil@v2.0
+              with:
+                  endpoint: "oss-cn-hangzhou.aliyuncs.com"
+                  access-key-id: ${{secrets.AccessKey_ID}}
+                  access-key-secret: ${{secrets.Access_Key_Secret}}
+            - run: ossutil cp -rf dist oss://jx3box/static/jx3box-talent2
+            - run: ossutil cp -rf output oss://jx3box/data/talent2
