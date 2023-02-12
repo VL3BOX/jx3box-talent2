@@ -226,7 +226,7 @@
 <script>
 import {
     __imgPath,
-    __ossRoot,
+    __dataPath,
     __iconPath,
 } from "@jx3box/jx3box-common/data/jx3box.json";
 import { xfConfigs } from "./talent2.json";
@@ -411,7 +411,7 @@ export default {
             return __imgPath + `image/talent/${this.xfContent[1]}_${num}.png`;
         },
         async getTalents() {
-            fetch(__ossRoot + "data/talent2/" + this.version + ".json")
+            fetch(__dataPath + "talent2/" + this.version + ".json")
                 .then((res) => res.json())
                 .then((response) => {
                     this.talents = { ...response, ...defaultXf };
