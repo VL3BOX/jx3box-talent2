@@ -90,6 +90,11 @@
             "content": [10242, 10243],
             "talent": ["怒炎","明光"]
         },
+        "笑尘诀": {
+            "begin": "right",
+            "content": [10268],
+            "talent": ["笑尘"]
+        },
         "通用": {
             "begin": "left",
             "content": [0, 0],
