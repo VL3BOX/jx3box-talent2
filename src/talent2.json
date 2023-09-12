@@ -91,7 +91,7 @@
             "talent": ["怒炎","明光"]
         },
         "笑尘诀": {
-            "begin": "right",
+            "begin": "left",
             "content": [10268],
             "talent": ["笑尘"]
         },
