@@ -140,7 +140,7 @@ const dist = "../output";
                 const skill = getSkill(skill_id);
                 if(!skill && skill_id) {
                     bar.clear();
-                    Logger.warn(`心法 ${xf_name} 的第 ${row + 1} 行第 ${col + 1} 列的镇派技能 ID ${skill_id} 不存在`);
+                    Logger.warn(`心法 ${xf_name} 的第 ${~~row + 1} 行第 ${~~col + 1} 列的镇派技能 ID ${skill_id} 不存在`);
                 }
                 xf_talent[row][col] = skill;
                 bar.tick();
