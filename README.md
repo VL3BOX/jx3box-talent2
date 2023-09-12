@@ -27,6 +27,12 @@ http://localhost:5000/?code=eyJ2ZXJzaW9uIjoidjIwMjEwODE0IiwieGYiOiLlgrLooYDmiJjm
 ## Deploy
 + CDN刷新 https://oss.jx3box.com/static/jx3box-talent2/ 目录
 
+## 更新须知
+- src/data/talent2.json
+- src/talent2.json
+    - condition 激活条件
+    - mutex 互斥关系
+
 
 # 部署流程
 + 更新版本号

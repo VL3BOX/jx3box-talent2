@@ -12,6 +12,7 @@
                         :style="{
                             'background-image': xf ? `url(${talentBg('left', 1)})` : ''
                         }"
+                        :class="{ 'is-single': isSingle }"
                     >
                         <div class="c-talent2-group">
                             <img class="c-talent2-group-icon" :src="xfContent[0] | xficon" />
@@ -111,7 +112,7 @@
                 </div>
 
                 <!-- RIGHT -->
-                <div class="c-talent2-right">
+                <div class="c-talent2-right" v-if="!isSingle">
                     <div
                         class="c-talent2-content"
                         :style="{
@@ -217,7 +218,7 @@
                 </div>
             </div>
         </template>
-        <div class="c-talent2-footer">
+        <div class="c-talent2-footer" :class="{'is-single': isSingle}">
             <a href="https://www.jx3box.com/app/talent2" target="_blank">JX3BOX Talent2 v{{app_version}}</a>
         </div>
     </div>
@@ -268,10 +269,17 @@ export default {
 
         parseCode: {},
 
+        condition: [],
+        mutex: [],
+
         // app version
         app_version : version
     }),
     computed: {
+        // 是否为单心法
+        isSingle: function () {
+            return !this.talentContent.left || !this.talentContent.right;
+        },
         lCount: function () {
             return this.l_data.length
                 ? this.l_data
@@ -317,9 +325,9 @@ export default {
          */
         canOperate: function (rowIndex, target) {
             if (target === "left") {
-                return this.lCount >= rowIndex * 5;
+                return this.lCount >= this.condition[rowIndex];
             } else {
-                return this.rCount >= rowIndex * 5;
+                return this.rCount >= this.condition[rowIndex];
             }
         },
         /**
@@ -341,14 +349,14 @@ export default {
             if (this.begin === "left") {
                 if (!rowIndex) {
                     canOperate = true;
-                } else if (this.lCount > 0 && this.lCount >= rowIndex * 5) {
+                } else if (this.lCount > 0 && this.lCount >= this.condition[rowIndex]) {
                     canOperate = true;
                 }
             } else if (this.begin === "right") {
                 if (
                     this.rCount >= this.series_open_need &&
                     this.lCount >= 0 &&
-                    this.lCount >= rowIndex * 5
+                    this.lCount >= this.condition[rowIndex]
                 ) {
                     canOperate = true;
                 }
@@ -378,14 +386,14 @@ export default {
             if (this.begin === "right") {
                 if (!rowIndex) {
                     canOperate = true;
-                } else if (this.rCount > 0 && this.rCount >= rowIndex * 5) {
+                } else if (this.rCount > 0 && this.rCount >= this.condition[rowIndex]) {
                     canOperate = true;
                 }
             } else if (this.begin === "left") {
                 if (
                     this.lCount >= this.series_open_need &&
                     this.rCount >= 0 &&
-                    this.rCount >= rowIndex * 5
+                    this.rCount >= this.condition[rowIndex]
                 ) {
                     canOperate = true;
                 }
@@ -424,14 +432,6 @@ export default {
 
                     const _sq = this.parseCode.sq.split(",");
 
-                    if (this.begin === "left") {
-                        this.l_data = _sq.slice(0, 6);
-                        this.r_data = _sq.slice(6, _sq.length);
-                    } else if (this.begin === "right") {
-                        this.r_data = _sq.slice(0, 6);
-                        this.l_data = _sq.slice(6, _sq.length);
-                    }
-
                     // 新增pop显示控制
                     this.talentContent.left = this.talents[
                         xfConfigs[val].talent[0]
@@ -454,6 +454,21 @@ export default {
                         return _right;
                     });
                     this.r_name = xfConfigs[val]?.talent[1];
+
+                    // const col_len = Math.max(...this.talentContent.left.map((l) => l.length));
+                    const row_len = this.talentContent.left.length;
+
+                    if (this.begin === "left") {
+                        this.l_data = _sq.slice(0, row_len);
+                        this.r_data = _sq.slice(row_len, _sq.length);
+                    } else if (this.begin === "right") {
+                        this.r_data = _sq.slice(0, row_len);
+                        this.l_data = _sq.slice(row_len, _sq.length);
+                    }
+
+                    // 激活条件
+                    this.condition = xfConfigs[val]?.condition || [0,5,10,15,20,25];
+                    this.mutex = xfConfigs[val]?.mutex || [];
 
                     this.total = val === "通用" ? 66 : defaultConfigs.total;
                     this.series_open_need = defaultConfigs.series_open_need;

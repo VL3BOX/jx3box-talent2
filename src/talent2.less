@@ -88,12 +88,16 @@
     font-size: 14px;
     position: absolute;
     right: 18px;
-    bottom: 22px;
+    bottom: 14px;
     a{
         color:#8bc7ac;
         &:hover{
             color: #c0f974;
         }
+    }
+
+    &.is-single {
+        bottom: 22px;
     }
 }
 
@@ -108,9 +112,11 @@
     background-repeat: no-repeat;
     background-position: left bottom;
 
+    transform: rotate(90deg) translateY(150px) translateX(135px);
 
     &-icon {
         width: 30px;
+        transform: rotate(-90deg);
     }
 
     &-count {
@@ -126,12 +132,19 @@
 
         background-image: url('./img/count_bg.png');
         background-repeat: no-repeat;
+
+        transform: rotate(-90deg);
+        left: 36px;
+        bottom: 18px;
     }
 
     &-name {
         color: #F3F50A;
         font-size: 15px;
         margin-left: 35px;
+
+        transform: rotate(-90deg);
+        writing-mode: vertical-rl;
     }
 }
 
@@ -150,6 +163,10 @@
         grid-template-columns: repeat(4, 1fr);
         justify-items: center;
         padding: 0 12px;
+
+        position: relative;
+        top: -32px;
+        left: 16px;
 
         &-disabled {
             cursor: not-allowed;
@@ -355,5 +372,33 @@
     }
     .on {
         display: block;
+    }
+}
+
+.is-single {
+    .c-talent2-content-row {
+        grid-template-columns: repeat(5, 1fr);
+        padding: 0 96px;
+        top: unset;
+        left: unset;
+    }
+
+    .c-talent2-group {
+        transform: unset;
+
+        .c-talent2-group-icon {
+            transform: unset;
+        }
+
+        &-count {
+            transform: unset;
+            left: 40px;
+            bottom: -5px;
+        }
+
+        &-name {
+            transform: unset;
+            writing-mode: unset;
+        }
     }
 }
