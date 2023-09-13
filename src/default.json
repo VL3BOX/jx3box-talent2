@@ -196,6 +196,10 @@
                         "找到一名情缘。"
                     ]
                 },
+                null
+            ],
+            [
+                null,null,null,
                 {
                     "name": "寡王",
                     "type": "skill",
@@ -407,7 +411,10 @@
                     ],
                     "pretab": 1
                 },
-                null,
+                null,null
+            ],
+            [
+                null,null,null,
                 {
                     "name": "谁与争锋",
                     "type": "skill",
