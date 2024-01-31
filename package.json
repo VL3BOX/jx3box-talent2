@@ -8,7 +8,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "update": "npm --registry https://registry.npmjs.org install @jx3box/jx3box-common@latest",
-    "talent" : "node ./tools/build.js"
+    "talent": "node ./tools/build.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/JX3BOX/jx3box-talent2#readme",
   "dependencies": {
-    "@jx3box/jx3box-common": "^7.3.9",
+    "@jx3box/jx3box-common": "^8.2.4",
     "@vitejs/plugin-vue": "^1.3.0",
     "@vue/compiler-sfc": "^3.1.5",
     "ansi-escapes": "^5.0.0",
